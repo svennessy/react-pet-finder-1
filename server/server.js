@@ -1,24 +1,24 @@
-const express = require("express")
-const mysql = require("mysql")
-const cors = require("cors")
-const path = require("path")
+import express from "express"
+import mysql from "mysql"
+import cors from "cors"
+import path from "path"
 
 // creates instance of express app
 // serves as backbone of server
 const app = express()
 
+// specify where server will listen for incoming requests
+const port = 5000
+
 // middleware functions for handling static files
 // access point for client side assets like js and css
 app.use(express.static(path.join(__dirname, "public")))
 
-// address security concerns with cross origin resource sharing
-app.use(cors())
-
 // parses json data from incoming http requests aka data sent from client
 app.use(express.json())
 
-// specify where server will listen for incoming requests
-const port = 5000
+// address security concerns with cross origin resource sharing
+app.use(cors())
 
 // set up connection to mysql database so our server can communicate
 const db = mysql.createConnection({
