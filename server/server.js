@@ -12,7 +12,7 @@ const port = 5000
 
 // middleware functions for handling static files
 // access point for client side assets like js and css
-app.use(express.static(path.join(__dirname, "public")))
+/* app.use(express.static(path.join(__dirname, "public"))) */
 
 // parses json data from incoming http requests aka data sent from client
 app.use(express.json())
