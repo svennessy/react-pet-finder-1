@@ -2,6 +2,7 @@
   "name": "react-pet-finder-1",
   "private": true,
   "version": "0.0.0",
+  "proxy": "https://react-pet-finder-1-server.onrender.com",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
