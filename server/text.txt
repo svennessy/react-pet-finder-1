@@ -1,0 +1,24 @@
+// array with your images
+$images = array('url1','url2','url3');
+
+// determine a new id
+$sql = "SELECT MAX(id) FROM images";
+$res = mysql_query($sql);
+list($id) = mysql_fetch_row($res);
+
+// highest current id, plus one
+$id++;
+
+// now create a values array to insert in the database
+$values = array();
+
+foreach ($images as $image) {
+  $values[] = "($id, '".mysql_real_escape_string($image)."')";
+}
+
+// comma-separate the values
+$values = implode(',',$values);
+
+// run the query
+$sql = "INSERT INTO images (id, image_url) VALUES $values";
+mysql_query($sql);

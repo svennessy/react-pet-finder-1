@@ -1,0 +1,113 @@
+[
+  {
+    "id": 0,
+    "petName": "Nala",
+    "petType": "Dog",
+    "ownerName": "Chris Lindamood",
+    "petAvi": "imgs/Pets/Nala/NalaOne.png",
+    "extraImgs": ["imgs/Pets/Nala/NalaTwo.png", "imgs/Pets/Nala/NalaThree.png"],
+    "isStillMissing": false,
+    "lastSeen": "2024-12",
+    "lastLocation": [42.23822, -113.377389]
+  },
+  {
+    "id": 1,
+    "petName": "Maxine",
+    "petType": "Dog",
+    "ownerName": "Bryan Reisberg",
+    "petAvi": "imgs/Pets/Maxine/MaxineOne.png",
+    "extraImgs": [
+      "imgs/Pets/Maxine/MaxineTwo.png",
+      "imgs/Pets/Maxine/MaxineThree.png"
+    ],
+    "isStillMissing": true,
+    "lastSeen": "2024-12",
+    "lastLocation": [38.928706, -77.10891]
+  },
+  {
+    "id": 2,
+    "petName": "Pot Roast",
+    "petType": "Cat",
+    "ownerName": "Pot Roast's Mom",
+    "petAvi": "imgs/Pets/PotRoast/PotRoastOne.png",
+    "extraImgs": ["imgs/Pets/PotRoast/PotRoastTwo.png"],
+    "isStillMissing": true,
+    "lastSeen": "2022-02",
+    "lastLocation": [42.416909, -107.1811]
+  },
+  {
+    "id": 3,
+    "petName": "Nimbus",
+    "petType": "Dog",
+    "ownerName": "Ashley Yi",
+    "petAvi": "imgs/Pets/Nimbus/NimbusOne.png",
+    "extraImgs": [
+      "imgs/Pets/Nimbus/NimbusTwo.png",
+      "imgs/Pets/Nimbus/NimbusThree.png"
+    ],
+    "isStillMissing": true,
+    "lastSeen": "2024-09",
+    "lastLocation": [39.700363, -121.15571]
+  },
+  {
+    "id": 4,
+    "petName": "Olivia Benson",
+    "petType": "Cat",
+    "ownerName": "Taylor Swift",
+    "petAvi": "imgs/Pets/Olivia/OliviaOne.png",
+    "extraImgs": [
+      "imgs/Pets/Olivia/OliviaTwo.png",
+      "imgs/Pets/Olivia/OliviaThree.png"
+    ],
+    "isStillMissing": true,
+    "lastSeen": "2024-09",
+    "lastLocation": [40.787195, -73.963062]
+  },
+  {
+    "id": 5,
+    "petName": "Cheddar",
+    "petType": "Dog",
+    "ownerName": "Raymond Holt",
+    "petAvi": "imgs/Pets/Cheddar/CheddarOne.png",
+    "extraImgs": [
+      "imgs/Pets/Cheddar/CheddarTwo.png",
+      "imgs/Pets/Cheddar/CheddarThree.png"
+    ],
+    "isStillMissing": true,
+    "lastSeen": "2021-09",
+    "lastLocation": [40.670638, -73.935597]
+  },
+  {
+    "id": 6,
+    "petName": "Nymeria",
+    "petType": "Direwolf",
+    "ownerName": "Arya Stark",
+    "petAvi": "imgs/Pets/Nymeria/NymeriaOne.png",
+    "extraImgs": ["imgs/Pets/Nymeria/NymeriaTwo.png"],
+    "isStillMissing": true,
+    "lastSeen": "2019-05",
+    "lastLocation": [80.630434, -41.600231]
+  },
+  {
+    "id": 7,
+    "petName": "Goose",
+    "petType": "Flerken",
+    "ownerName": "Carol Danvers",
+    "petAvi": "imgs/Pets/Goose/GooseOne.png",
+    "extraImgs": ["imgs/Pets/Goose/GooseTwo.png"],
+    "isStillMissing": true,
+    "lastSeen": "2019-03",
+    "lastLocation": [30.351378, -89.608715]
+  },
+  {
+    "id": 8,
+    "petName": "Stella",
+    "petType": "Dog",
+    "ownerName": "Jay Pritchett",
+    "petAvi": "imgs/Pets/Stella/StellaOne.png",
+    "extraImgs": ["imgs/Pets/Stella/StellaTwo.png"],
+    "isStillMissing": true,
+    "lastSeen": "2020-08",
+    "lastLocation": [33.994281, -118.274521]
+  }
+]

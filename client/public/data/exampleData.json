@@ -1,0 +1,36 @@
+[
+  {
+    "id": 0,
+    "exampleName": "ExampleOne",
+    "exampleImgLocation": "./imgs/Examples/ExampleOne.png",
+    "arrayExample": ["one", "two", "three"],
+    "objectsExample": [
+      { "objectName": "objectOne", "objectValue": "Big", "objectState": false },
+      { "objectName": "objectTwo", "objectValue": "Red", "objectState": true },
+      {
+        "objectName": "objectThree",
+        "objectValue": "Bus",
+        "objectState": false
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "exampleName": "ExampleTwo",
+    "exampleImgLocation": "./imgs/Examples/ExampleTwo.png",
+    "arrayExample": ["four", "five", "six"],
+    "objectsExample": [
+      {
+        "objectName": "objectFour",
+        "objectValue": "Oh",
+        "objectState": false
+      },
+      { "objectName": "objectFive", "objectValue": "No", "objectState": true },
+      {
+        "objectName": "objectSix",
+        "objectValue": "Niall",
+        "objectState": false
+      }
+    ]
+  }
+]
