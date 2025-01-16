@@ -20,6 +20,10 @@ app.use(express.json())
 // address security concerns with cross origin resource sharing
 app.use(cors())
 
+app.get('/', (req, res) => {
+  res.send("hola menudo")
+})
+
 // set up connection to mysql database so our server can communicate
 const db = mysql.createConnection({
   host: "localhost",
