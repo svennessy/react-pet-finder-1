@@ -20,10 +20,6 @@ app.use(express.json())
 // address security concerns with cross origin resource sharing
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.send("hola menudo")
-})
-
 // set up connection to mysql database so our server can communicate
 const db = mysql.createConnection({
   host: "localhost",
@@ -32,10 +28,20 @@ const db = mysql.createConnection({
   database: "pets",
 })
 
+app.get("/", (req, res) => {
+  const sql = "SELECT * FROM pet_details"
+  db.query(sql, (err, data) => {
+    if (err) {
+      return res.json({ Error: "Error" })
+    }
+    return res.json(data)
+  })
+})
+
 // add pet object
-app.post("/add_pet", (req, res) => {
+app.post("/create", (req, res) => {
   const sql =
-    "INSERT INTO pet_details (`petName`, `petType`, `ownerName`, `petAvi`) VALUES (?, ?, ?, ?)"
+    "INSERT INTO pet_details (petName, petType, ownerName, petAvi) VALUES (?)"
   const values = [
     req.body.petName,
     req.body.petType,
@@ -46,38 +52,39 @@ app.post("/add_pet", (req, res) => {
      req.body.lastLocationLat,
     req.body.lastLocationLong, */
   ]
-  db.query(sql, values, (err, result) => {
+  db.query(sql, [values], (err, data) => {
     if (err)
       return res.json({ message: "Something unexpected has occured" + err })
-    return res.json({ success: "Pet added successfully" })
+    return res.json(data)
   })
 })
 
-app.get("/pets", (req, res) => {
-  const sql = "SELECT * FROM pet_details"
-  db.query(sql, (err, result) => {
-    if (err) res.json({ message: "Server error" })
-    return res.json(result)
-  })
-})
-
-app.get("/get_pet/:id", (req, res) => {
+app.put("/update/:id", (req, res) => {
+  const sql =
+    "update pet_details set petName = ?, petType = ?, ownerName = ?, petAvi = ? where id = ?"
+  const values = [
+    req.body.petName,
+    req.body.petType,
+    req.body.ownerName,
+    req.body.petAvi,
+  ]
   const id = req.params.id
-  const sql = "SELECT * FROM pet_details WHERE `id`= ?"
-  db.query(sql, [id], (err, result) => {
-    if (err) res.json({ message: "Server error" })
-    return res.json(result)
+  db.query(sql, [...values, id], (err, data) => {
+    if (err) {
+      return res.json({ Error: "Error" })
+    }
+    return res.json(data)
   })
 })
 
 app.delete("/delete/:id", (req, res) => {
+  const sql = "delete from pet_details where id = ?"
   const id = req.params.id
-  const sql = "DELETE FROM pet_details WHERE id=?"
-  const values = [id]
-  db.query(sql, values, (err, result) => {
-    if (err)
-      return res.json({ message: "Something unexpected has occured" + err })
-    return res.json({ success: "Student updated successfully" })
+  db.query(sql, [id], (err, data) => {
+    if (err) {
+      return res.json({ Error: "Error" })
+    }
+    return res.json(data)
   })
 })
 
