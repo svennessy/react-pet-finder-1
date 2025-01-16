@@ -1,4 +1,17 @@
-import axios from "axios"
+import React from 'react'
+
+function Home() {
+  return (
+    <div>
+      Home
+    </div>
+  )
+}
+
+export default Home
+
+
+/* import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -73,6 +86,7 @@ function Home() {
       </table>
     </div>
   )
-}
+} 
 
 export default Home
+*/

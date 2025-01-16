@@ -1,4 +1,17 @@
-import { useState } from "react"
+import React from 'react'
+
+function Create() {
+  return (
+    <div>
+      Create
+    </div>
+  )
+}
+
+export default Create
+
+
+/* import { useState } from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
 
@@ -8,10 +21,10 @@ function Create() {
     petType: "",
     ownerName: "",
     petAvi: "",
-    /*isStillMissing: "",
-    lastSeen: "",
-     lastLocationLat: "",
-    lastLocationLong: "", */
+    // isStillMissing: "",
+    // lastSeen: "",
+    // lastLocationLat: "",
+    // lastLocationLong: "",
   })
 
   const navigate = useNavigate()
@@ -90,3 +103,4 @@ function Create() {
 }
 
 export default Create
+ */

@@ -3,7 +3,7 @@ import RenderHome from "./renders/RenderHome" */
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./elements/Home"
 import Create from "./elements/Create"
-import Read from "./elements/Read"
+import Update from "./elements/Update"
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<Create />} />
-        <Route path="/read/:id" element={<Read />} />
+        <Route path="/update" element={<Update />} />
       </Routes>
     </BrowserRouter>
   )
