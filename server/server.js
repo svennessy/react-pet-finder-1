@@ -26,6 +26,7 @@ const db = mysql.createConnection({
   user: "root",
   password: "",
   database: "pets",
+  dateStrings: "lastSeen",
 })
 
 app.get("/", (req, res) => {
@@ -41,12 +42,13 @@ app.get("/", (req, res) => {
 // add pet object
 app.post("/create", (req, res) => {
   const sql =
-    "INSERT INTO pet_details (petName, petType, ownerName, petAvi) VALUES (?)"
+    "INSERT INTO pet_details (petName, petType, ownerName, petAvi, lastSeen) VALUES (?)"
   const values = [
     req.body.petName,
     req.body.petType,
     req.body.ownerName,
     req.body.petAvi,
+    req.body.lastSeen,
     /*req.body.isStillMissing,
     req.body.lastSeen,
      req.body.lastLocationLat,
@@ -61,12 +63,13 @@ app.post("/create", (req, res) => {
 
 app.put("/update/:id", (req, res) => {
   const sql =
-    "update pet_details set petName = ?, petType = ?, ownerName = ?, petAvi = ? where id = ?"
+    "update pet_details set petName = ?, petType = ?, ownerName = ?, petAvi = ?, lastSeen = ? where id = ?"
   const values = [
     req.body.petName,
     req.body.petType,
     req.body.ownerName,
     req.body.petAvi,
+    req.body.lastSeen,
   ]
   const id = req.params.id
   db.query(sql, [...values, id], (err, data) => {
@@ -80,6 +83,17 @@ app.put("/update/:id", (req, res) => {
 app.delete("/delete/:id", (req, res) => {
   const sql = "delete from pet_details where id = ?"
   const id = req.params.id
+  db.query(sql, [id], (err, data) => {
+    if (err) {
+      return res.json({ Error: "Error" })
+    }
+    return res.json(data)
+  })
+})
+
+app.get("/getrecord/:id", (req, res) => {
+  const id = req.params.id
+  const sql = "select * from pet_details where id = ?"
   db.query(sql, [id], (err, data) => {
     if (err) {
       return res.json({ Error: "Error" })
