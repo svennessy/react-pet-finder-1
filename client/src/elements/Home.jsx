@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
+import UseAxios from "../hooks/UseAxios"
 
 function Home() {
-  const [pets, setPets] = useState([])
+  const { data, loading, error } = UseAxios()
 
+  /* const [pets, setPets] = useState([...data]) 
+  
   useEffect(() => {
     axios
       .get("http://localhost:5000")
       .then((res) => setPets(res.data))
       .catch((err) => console.log(err))
-  }, [])
+  }, []) 
+  
+  useEffect(() => {
+    setPets((prev) => [...data])
+  }, []) */
 
   const handleDelete = (id) => {
     axios
@@ -19,17 +26,24 @@ function Home() {
       .catch((err) => console.log(err))
   }
 
+  if (loading) {
+    return <div>Loading</div>
+  }
+
+  if (error) {
+    return <div>Error</div>
+  }
+
   return (
     <div className="appContainer">
       <div className="homeContainer">
         <Link to="/create" className="">
           Add Pet
         </Link>
-        {pets.length !== 0 ? (
+        {data.length !== 0 ? (
           <table>
             <thead>
               <tr>
-                <th>#</th>
                 <th>Pet Name</th>
                 <th>Pet Type</th>
                 <th>Owner Name</th>
@@ -38,9 +52,8 @@ function Home() {
               </tr>
             </thead>
             <tbody>
-              {pets.map((pet) => (
+              {data.map((pet) => (
                 <tr key={pet.id}>
-                  <td>{pet.id}</td>
                   <td>{pet.petName}</td>
                   <td>{pet.petType}</td>
                   <td>{pet.ownerName}</td>

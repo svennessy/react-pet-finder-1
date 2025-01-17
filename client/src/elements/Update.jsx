@@ -1,9 +1,17 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import UseAxios from "../hooks/UseAxios"
 
 function Update() {
-  const { id } = useParams()
+  const { values, setValues, updateData, id } = UseAxios()
+
+  const handleUpdate = (e) => {
+    e.preventDefault()
+    updateData()
+  }
+
+  /* const { id } = useParams()
   const [values, setValues] = useState({
     petName: "",
     petType: "",
@@ -36,12 +44,12 @@ function Update() {
         })
       )
       .catch((err) => console.log(err))
-  }, [])
+  }, []) */
 
   return (
     <div>
       <h1>Update Pet Info</h1>
-      <form action="/action_page.php" onSubmit={handleSubmit}>
+      <form action="/action_page.php" onSubmit={handleUpdate}>
         <div>
           <label htmlFor="petName">Pet Name</label>
           <input
@@ -91,9 +99,7 @@ function Update() {
             id="lastSeen"
             name="lastSeen"
             value={values.lastSeen}
-            onChange={(e) =>
-              setValues({ ...values, lastSeen: e.target.value })
-            }
+            onChange={(e) => setValues({ ...values, lastSeen: e.target.value })}
           />
         </div>
         <button type="submit">Submit</button>

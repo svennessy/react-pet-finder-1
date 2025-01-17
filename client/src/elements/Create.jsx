@@ -1,9 +1,11 @@
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import UseAxios from "../hooks/UseAxios"
 
 function Create() {
-  const [values, setValues] = useState({
+  const { createData, values, setValues } = UseAxios()
+  /* const [values, setValues] = useState({
     petName: "",
     petType: "",
     ownerName: "",
@@ -11,19 +13,19 @@ function Create() {
     lastSeen: "",
   })
 
-  const navigate = useNavigate()
+  const navigate = useNavigate() */
 
-  const handleSubmit = (e) => {
+  /* const handleSubmit = (e) => {
     e.preventDefault()
     axios
       .post("http://localhost:5000/create", values)
       .then((res) => navigate("/"))
       .catch((err) => console.log(err))
-  }
+  } */
 
   return (
     <div>
-      <form action="/action_page.php" onSubmit={handleSubmit}>
+      <form action="/action_page.php" onSubmit={createData}>
         <div>
           <label htmlFor="petName">Pet Name</label>
           <input
@@ -78,4 +80,3 @@ function Create() {
 }
 
 export default Create
-
